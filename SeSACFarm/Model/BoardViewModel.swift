@@ -33,7 +33,7 @@ extension BoardViewModel {
     }
 
     func cellForRowAt(at indexPath: IndexPath)-> ResultElement {
-        
+
         return posts.value[indexPath.row]
     }
 
