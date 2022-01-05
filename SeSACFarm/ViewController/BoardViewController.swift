@@ -15,12 +15,29 @@ class BoardViewController: UIViewController {
     
     private var tableView = UITableView()
     
+    let floatingButton : UIButton = {
+        let floating = UIButton()
+        
+        floating.clipsToBounds = true
+        floating.layer.cornerRadius = 25
+        floating.backgroundColor = UIColor(red: 52/255, green: 161/255, blue: 112/255, alpha: 1)
+        floating.setImage(UIImage(systemName: "plus"), for: .normal)
+        floating.tintColor = .white
+        floating.translatesAutoresizingMaskIntoConstraints = false
+        
+        return floating
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchPosts(text: UserDefaults.standard.string(forKey: "token")!)
-      
-       
+        
+        self.navigationItem.title = "새싹농장"
+    
+        
+        view.backgroundColor = .white
+        
+        viewModel.fetchPosts()
+        
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
@@ -32,12 +49,38 @@ class BoardViewController: UIViewController {
         tableView.estimatedRowHeight = 120
         tableView.register(BoardTableViewCell.self, forCellReuseIdentifier: BoardTableViewCell.identifier)
      
+        view.addSubview(floatingButton)
+        floatingButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-72)
+            make.trailing.equalToSuperview().offset(-24)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+            
+        }
+        
+        floatingButton.addTarget(self, action: #selector(ClickedFloatingButton), for: .touchUpInside)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchPosts()
+        
         viewModel.posts.bind { post in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-
         }
+        
+    }
+    
+    @objc func ClickedFloatingButton(){
+        
+        
+        let vc = WriteViewController()
+         
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -50,6 +93,26 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
         return viewModel.numberOfRowInSection
     }
 
+  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let data = viewModel.cellForRowAt(at: indexPath)
+        let vc = PostViewController()
+        
+        vc.viewModel.id = data.id
+        vc.viewModel.username.value = data.user.username
+        vc.viewModel.commentCount.value = data.comments.count
+        vc.viewModel.postDate.value = data.createdAt
+        vc.viewModel.postTextView.value = data.text
+        
+        
+        print(data.id)
+        print(data.user.username)
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.identifier, for: indexPath) as! BoardTableViewCell
@@ -85,6 +148,8 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    
  
 }
 

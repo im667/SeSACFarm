@@ -1,17 +1,18 @@
-//
-//  BoardTableViewCell.swift
-//  SeSACFarm
-//
-//  Created by mac on 2022/01/03.
-//
-
-import Foundation
 import UIKit
 import SnapKit
 
-class BoardTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
     
-    static let identifier = "BoardTableViewCell"
+    static let identifier = "PostTableViewCell"
+    
+    let userImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "person.fill")
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 16
+        image.tintColor = .systemGray
+        return image
+    }()
     
     let usernameLabel : UILabel = {
         let label = UILabel()
@@ -23,14 +24,23 @@ class BoardTableViewCell: UITableViewCell {
         return label
     }()
     
+    
+    let postDateLabel = UILabel()
     let postTextView = UITextView()
-    let postDateLabel : UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        return label
-    }()
     
     let lineView : UIView = {
+        let line = UIView()
+        line.backgroundColor = .systemGray5
+        return line
+    }()
+    
+    let lineView2 : UIView = {
+        let line = UIView()
+        line.backgroundColor = .systemGray5
+        return line
+    }()
+    
+    let lineView3 : UIView = {
         let line = UIView()
         line.backgroundColor = .systemGray5
         return line
@@ -56,16 +66,17 @@ class BoardTableViewCell: UITableViewCell {
         return image
     }()
     
-    let commentLabel : UILabel = {
+    let commentCountLabel : UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .darkGray
         return label
     }()
     
+ 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-       super.init(style: style, reuseIdentifier: "BoardTableViewCell")
+       super.init(style: style, reuseIdentifier: "PostTableViewCell")
         
         loadLayout()
     }
@@ -76,32 +87,48 @@ class BoardTableViewCell: UITableViewCell {
     
     func loadLayout() {
         
+        contentView.addSubview(userImage)
+        userImage.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(24)
+            make.leading.equalToSuperview().offset(16)
+            make.width.equalTo(32)
+            make.height.equalTo(32)
+           
+        }
+        
         contentView.addSubview(usernameLabel)
         usernameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(12)
-            make.leading.equalToSuperview().offset(16)
-            make.width.equalTo(usernameLabel.snp.width)
+            make.top.equalTo(safeAreaLayoutGuide).offset(24)
+            make.leading.equalTo(userImage.snp.trailing).offset(12)
             make.height.equalTo(16)
         }
         
-        contentView.addSubview(postTextView)
-        postTextView.snp.makeConstraints { make in
-            make.top.equalTo(usernameLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(12)
-            make.trailing.equalToSuperview().offset(-12)
-            make.height.equalTo(40)
-        }
         contentView.addSubview(postDateLabel)
         postDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(postTextView.snp.bottom).offset(16)
-            make.leading.equalTo(usernameLabel.snp.leading)
-            make.height.equalTo(16)
-            
+            make.top.equalTo(usernameLabel.snp.bottom).offset(4)
+            make.leading.equalTo(userImage.snp.trailing).offset(12)
+            make.height.equalTo(12)
         }
         
         contentView.addSubview(lineView)
         lineView.snp.makeConstraints { make in
-            make.top.equalTo(postDateLabel.snp.bottom).offset(8)
+            make.top.equalTo(postDateLabel.snp.bottom).offset(12)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
+        
+        contentView.addSubview(postTextView)
+        postTextView.snp.makeConstraints { make in
+            make.top.equalTo(lineView.snp.bottom).offset(12)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+       
+        
+        contentView.addSubview(lineView2)
+        lineView.snp.makeConstraints { make in
+            make.top.equalTo(postTextView.snp.bottom).offset(24)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.height.equalTo(1)
@@ -113,17 +140,16 @@ class BoardTableViewCell: UITableViewCell {
             make.height.equalTo(16)
             make.width.equalTo(16)
         }
-        commentBox.addArrangedSubview(commentLabel)
-        commentLabel.snp.makeConstraints { make in
+        
+        commentBox.addArrangedSubview(commentCountLabel)
+        commentCountLabel.snp.makeConstraints { make in
             make.height.equalTo(16)
             make.leading.equalTo(commentImage.snp.trailing).offset(4)
-            
-            
         }
         
         contentView.addSubview(commentBox)
         commentBox.snp.makeConstraints { make in
-            make.top.equalTo(postDateLabel.snp.bottom).offset(16)
+            make.top.equalTo(lineView2.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(24)
             make.trailing.equalToSuperview().offset(-16)
@@ -131,9 +157,16 @@ class BoardTableViewCell: UITableViewCell {
       
         }
         
+        contentView.addSubview(lineView3)
+        lineView.snp.makeConstraints { make in
+            make.top.equalTo(commentBox.snp.bottom).offset(24)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
         
         
         
     }
-    
 }
+

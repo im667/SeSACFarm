@@ -40,12 +40,11 @@ struct User: Codable {
     let username, email: String
     let provider: Provider
     let confirmed: Bool
-    let blocked: Bool?
     let role: Int
     let createdAt, updatedAt: String
 
     enum CodingKeys: String, CodingKey {
-        case id, username, email, provider, confirmed, blocked, role
+        case id, username, email, provider, confirmed, role
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

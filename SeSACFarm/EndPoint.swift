@@ -28,15 +28,15 @@ enum Endpoint {
 extension Endpoint {
     var url: URL {
         switch self {
-            
+        
         case .signUp:
             return .makeEndpoint("auth/local/register")
         case .login:
             return .makeEndpoint("auth/local")
         case .boards:
-            return .makeEndpoint("boards")
+            return .makeEndpoint("posts")
         case .boardsDetail(let id):
-            return .makeEndpoint("boards/\(id)")
+            return .makeEndpoint("comments?post=\(id)")
             
         }
     }
@@ -70,6 +70,7 @@ extension URLSession {
         
         session.dataTask(endpoint) { data, response, error in
             DispatchQueue.main.async {
+            
                 guard error == nil else {
                     completion(nil, .failed)
                     return

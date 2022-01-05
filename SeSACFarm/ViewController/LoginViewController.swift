@@ -22,18 +22,16 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         
         if UserDefaults.standard.string(forKey: "token") != nil{
-            
-            print(UserDefaults.standard.string(forKey: "token"))
-            
+
             DispatchQueue.main.async {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                
+
                 windowScene.windows.first?.rootViewController = UINavigationController(rootViewController: BoardViewController())
                 windowScene.windows.first?.makeKeyAndVisible()
-            
+
             }
         }
-        
+    
         viewModel.userEmail.bind { text in
             self.mainView.userEmailTextField.text = text
         }
@@ -42,6 +40,7 @@ class LoginViewController: UIViewController {
             self.mainView.passwordTextField.text = text
         }
         
+        mainView.signInButton.addTarget(self, action: #selector(signInButtonClicked), for: .touchUpInside)
         
         mainView.userEmailTextField.addTarget(self, action: #selector(userEmailTextFieldDidChange(_:)), for: .editingChanged)
         
@@ -61,7 +60,9 @@ class LoginViewController: UIViewController {
         viewModel.password.value = textfield.text ?? ""
     }
     
-    @objc func signUpButtonClicked(){
+    @objc func signInButtonClicked(){
+        print(#function)
+        
         viewModel.postUserLogin {
             DispatchQueue.main.async {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }

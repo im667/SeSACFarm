@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040E271127843A6B00E319CA /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271027843A6B00E319CA /* WriteView.swift */; };
+		040E271327843DB400E319CA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271227843DB400E319CA /* PostTableViewCell.swift */; };
+		040E271527843DF700E319CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271427843DF700E319CA /* DetailViewModel.swift */; };
+		040E271727843E5200E319CA /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271627843E5200E319CA /* Detail.swift */; };
+		040E271B27845E4500E319CA /* BackUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271A27845E4500E319CA /* BackUpCell.swift */; };
+		040E27212785B0F500E319CA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27202785B0F500E319CA /* CommentTableViewCell.swift */; };
 		0411849C278085EA0048344E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849B278085EA0048344E /* AppDelegate.swift */; };
 		0411849E278085EA0048344E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849D278085EA0048344E /* SceneDelegate.swift */; };
 		041184A5278085EF0048344E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041184A4278085EF0048344E /* Assets.xcassets */; };
@@ -25,14 +31,19 @@
 		041184FF2782CB580048344E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041184FE2782CB570048344E /* Observable.swift */; };
 		041185012782E7030048344E /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185002782E7020048344E /* BoardViewController.swift */; };
 		041185032782F02A0048344E /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185022782F02A0048344E /* BoardViewModel.swift */; };
-		041185052782F0340048344E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185042782F0340048344E /* BoardView.swift */; };
-		041185072782F05E0048344E /* BoardWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185062782F05E0048344E /* BoardWriteViewController.swift */; };
-		041185092782F06A0048344E /* BoardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185082782F06A0048344E /* BoardDetailViewController.swift */; };
+		041185072782F05E0048344E /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185062782F05E0048344E /* WriteViewController.swift */; };
+		041185092782F06A0048344E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185082782F06A0048344E /* PostViewController.swift */; };
 		0411850B278309460048344E /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850A278309460048344E /* Posts.swift */; };
 		0411850D278314760048344E /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850C278314760048344E /* BoardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040E271027843A6B00E319CA /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		040E271227843DB400E319CA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		040E271427843DF700E319CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		040E271627843E5200E319CA /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		040E271A27845E4500E319CA /* BackUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpCell.swift; sourceTree = "<group>"; };
+		040E27202785B0F500E319CA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		04118498278085EA0048344E /* SeSACFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411849B278085EA0048344E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411849D278085EA0048344E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,9 +63,8 @@
 		041184FE2782CB570048344E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		041185002782E7020048344E /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		041185022782F02A0048344E /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
-		041185042782F0340048344E /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		041185062782F05E0048344E /* BoardWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardWriteViewController.swift; sourceTree = "<group>"; };
-		041185082782F06A0048344E /* BoardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailViewController.swift; sourceTree = "<group>"; };
+		041185062782F05E0048344E /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		041185082782F06A0048344E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		0411850A278309460048344E /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		0411850C278314760048344E /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +110,7 @@
 				041184FE2782CB570048344E /* Observable.swift */,
 				041184C527808B8A0048344E /* SignUser.swift */,
 				0411850A278309460048344E /* Posts.swift */,
+				040E271627843E5200E319CA /* Detail.swift */,
 				041184A4278085EF0048344E /* Assets.xcassets */,
 				041184A6278085EF0048344E /* LaunchScreen.storyboard */,
 				041184A9278085EF0048344E /* Info.plist */,
@@ -113,6 +124,7 @@
 				041184B82780890E0048344E /* LoginViewModel.swift */,
 				041185022782F02A0048344E /* BoardViewModel.swift */,
 				041184C327808B0E0048344E /* SignUpViewModel.swift */,
+				040E271427843DF700E319CA /* DetailViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				041184B6278088F70048344E /* LoginView.swift */,
+				040E271027843A6B00E319CA /* WriteView.swift */,
 				041184C127808B020048344E /* SignUpView.swift */,
-				041185042782F0340048344E /* BoardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,8 +147,11 @@
 				041184BF27808AF40048344E /* SignUpViewController.swift */,
 				041185002782E7020048344E /* BoardViewController.swift */,
 				0411850C278314760048344E /* BoardTableViewCell.swift */,
-				041185062782F05E0048344E /* BoardWriteViewController.swift */,
-				041185082782F06A0048344E /* BoardDetailViewController.swift */,
+				040E271A27845E4500E319CA /* BackUpCell.swift */,
+				041185062782F05E0048344E /* WriteViewController.swift */,
+				041185082782F06A0048344E /* PostViewController.swift */,
+				040E271227843DB400E319CA /* PostTableViewCell.swift */,
+				040E27202785B0F500E319CA /* CommentTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -219,22 +234,27 @@
 			files = (
 				041184FD2782CB260048344E /* EndPoint.swift in Sources */,
 				041184C427808B0E0048344E /* SignUpViewModel.swift in Sources */,
-				041185072782F05E0048344E /* BoardWriteViewController.swift in Sources */,
+				041185072782F05E0048344E /* WriteViewController.swift in Sources */,
 				041184B7278088F70048344E /* LoginView.swift in Sources */,
+				040E271327843DB400E319CA /* PostTableViewCell.swift in Sources */,
 				0411849C278085EA0048344E /* AppDelegate.swift in Sources */,
 				041184B0278088930048344E /* APIService.swift in Sources */,
 				041184BE278089520048344E /* LoginViewController.swift in Sources */,
 				0411849E278085EA0048344E /* SceneDelegate.swift in Sources */,
 				041184C227808B020048344E /* SignUpView.swift in Sources */,
+				040E271127843A6B00E319CA /* WriteView.swift in Sources */,
 				041184C627808B8A0048344E /* SignUser.swift in Sources */,
 				0411850D278314760048344E /* BoardTableViewCell.swift in Sources */,
 				041184FF2782CB580048344E /* Observable.swift in Sources */,
 				041184C027808AF40048344E /* SignUpViewController.swift in Sources */,
+				040E27212785B0F500E319CA /* CommentTableViewCell.swift in Sources */,
 				041184B5278088E90048344E /* MainViewController.swift in Sources */,
+				040E271B27845E4500E319CA /* BackUpCell.swift in Sources */,
 				0411850B278309460048344E /* Posts.swift in Sources */,
 				041184B92780890E0048344E /* LoginViewModel.swift in Sources */,
-				041185092782F06A0048344E /* BoardDetailViewController.swift in Sources */,
-				041185052782F0340048344E /* BoardView.swift in Sources */,
+				040E271527843DF700E319CA /* DetailViewModel.swift in Sources */,
+				041185092782F06A0048344E /* PostViewController.swift in Sources */,
+				040E271727843E5200E319CA /* Detail.swift in Sources */,
 				041185012782E7030048344E /* BoardViewController.swift in Sources */,
 				041185032782F02A0048344E /* BoardViewModel.swift in Sources */,
 			);
