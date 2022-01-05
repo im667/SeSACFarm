@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewModel {
+class PostViewModel {
 
     
     var id:Int = 0
@@ -22,6 +22,7 @@ class DetailViewModel {
     
 
     func commentGet(complition: @escaping ()->Void ) {
+        print("GETID:",id)
         APIService.getDetail(id: id) { post, error in
             guard let post = post else {
                 return
@@ -32,7 +33,7 @@ class DetailViewModel {
     }
 }
 
-extension DetailViewModel {
+extension PostViewModel {
     var numberOfRowsInSection: Int {
         return Detail.value.count
     }

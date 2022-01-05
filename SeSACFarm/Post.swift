@@ -23,10 +23,10 @@ struct PostElement: Codable {
 // MARK: - PostClass
 struct PostClass: Codable {
     let id: Int
-    let text: Text
+    let text: String
     let user: Int
-    let createdAt: CreatedAt
-    let updatedAt: UpdatedAt
+    let createdAt: String
+    let updatedAt: String
 
     enum CodingKeys: String, CodingKey {
         case id, text, user
@@ -35,17 +35,7 @@ struct PostClass: Codable {
     }
 }
 
-enum CreatedAt: String, Codable {
-    case the20211230T100148503Z = "2021-12-30T10:01:48.503Z"
-}
 
-enum Text: String, Codable {
-    case 우와누가댓글1번이되실지궁금합니다 = "우와 누가 댓글 1번이 되실지 궁금합니다!!!"
-}
-
-enum UpdatedAt: String, Codable {
-    case the20211230T100148518Z = "2021-12-30T10:01:48.518Z"
-}
 
 // MARK: - User
 

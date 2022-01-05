@@ -116,11 +116,25 @@ class APIService {
         
     }
     
-    static func getPosts(completion: @escaping (Result?, APIError?)->Void) {
+    static func getPosts(completion: @escaping (Board?, APIError?)->Void) {
         
         var request = URLRequest(url: Endpoint.boards.url)
         
         request.httpMethod = Method.GET.rawValue
+        guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.request(endpoint: request, completion: completion)
+        
+    }
+    
+    static func writePosts(text:String, completion: @escaping (BoardElement?, APIError?)->Void) {
+        
+        var request = URLRequest(url: Endpoint.boards.url)
+        
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "text=\(text)".data(using: .utf8, allowLossyConversion: false)
         guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
         
         request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
@@ -142,5 +156,19 @@ class APIService {
         URLSession.request(endpoint: request, completion: completion)
     }
     
+    
+    
+    static func writeComment(id: Int, comment: String, completion: @escaping (PostElement?, APIError?)->Void) {
+        
+        var request = URLRequest(url: Endpoint.postComment.url)
+        
+        request.httpMethod = Method.POST.rawValue
+        request.httpBody = "comment=\(comment)&post=\(id)".data(using: .utf8, allowLossyConversion: false)
+        guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.request(endpoint: request, completion: completion)
+    }
     
 }

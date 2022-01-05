@@ -105,7 +105,7 @@ class PostTableViewCell: UITableViewCell {
         
         contentView.addSubview(userImage)
         userImage.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(24)
+            make.top.equalToSuperview().offset(16)
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(32)
             make.height.equalTo(32)
@@ -113,7 +113,7 @@ class PostTableViewCell: UITableViewCell {
         
         contentView.addSubview(usernameLabel)
         usernameLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(24)
+            make.top.equalToSuperview().offset(16)
             make.leading.equalTo(userImage.snp.trailing).offset(12)
             make.height.equalTo(16)
         }
@@ -127,7 +127,7 @@ class PostTableViewCell: UITableViewCell {
         
         contentView.addSubview(lineView)
         lineView.snp.makeConstraints { make in
-            make.top.equalTo(postDateLabel.snp.bottom).offset(12)
+            make.top.equalTo(postDateLabel.snp.bottom).offset(16)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.height.equalTo(1)
@@ -138,7 +138,7 @@ class PostTableViewCell: UITableViewCell {
             make.top.equalTo(lineView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            
+          
         }
        
         
@@ -178,7 +178,7 @@ class PostTableViewCell: UITableViewCell {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.height.equalTo(1)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(30)
         }
         
     }

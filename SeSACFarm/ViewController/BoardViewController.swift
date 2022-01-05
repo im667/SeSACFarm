@@ -67,7 +67,7 @@ class BoardViewController: UIViewController {
         
         viewModel.fetchPosts()
         
-        viewModel.posts.bind { post in
+        viewModel.Boards.bind { post in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -78,7 +78,7 @@ class BoardViewController: UIViewController {
     @objc func ClickedFloatingButton(){
         
         
-        let vc = WriteViewController()
+        let vc = WritePostViewController()
          
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -97,9 +97,10 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let data = viewModel.cellForRowAt(at: indexPath)
+        print("확인확인",self.viewModel.Boards.value[indexPath.row].id)
         let vc = PostViewController()
         
-        vc.viewModel.id = data.id
+        vc.viewModel.id = self.viewModel.Boards.value[indexPath.row].id
         vc.viewModel.username.value = data.user.username
         vc.viewModel.commentCount.value = data.comments.count
         vc.viewModel.postDate.value = data.createdAt
@@ -145,7 +146,7 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
         
         
         cell.postDateLabel.text = data.createdAt
-        cell.postTextView.text = data.text
+        cell.postTextLabel.text = data.text
         cell.commentLabel.text = data.comments.count == 0 ? "댓글쓰기" : String(data.comments.count)
         
         

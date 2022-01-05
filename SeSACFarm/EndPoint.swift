@@ -21,6 +21,7 @@ enum Endpoint {
     case login
     case boards
     case boardsDetail(id: Int)
+    case postComment
     
 }
 
@@ -34,10 +35,11 @@ extension Endpoint {
         case .login:
             return .makeEndpoint("auth/local")
         case .boards:
-            return .makeEndpoint("posts")
-        case .boardsDetail(let id):
+            return .makeEndpoint("posts?_sort=created_at:desc")
+        case .boardsDetail(id: let id):
             return .makeEndpoint("comments?post=\(id)")
-            
+        case .postComment:
+            return .makeEndpoint("comments")
         }
     }
 }
@@ -71,6 +73,9 @@ extension URLSession {
         session.dataTask(endpoint) { data, response, error in
             DispatchQueue.main.async {
             
+                print(data)
+                print(response)
+                print(error)
                 guard error == nil else {
                     completion(nil, .failed)
                     return
@@ -96,6 +101,7 @@ extension URLSession {
                     let userData = try decoder.decode(T.self, from: data)
                     completion(userData, nil)
                 } catch {
+                   
                     completion(nil, .invalidData)
                 }
             }

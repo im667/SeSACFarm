@@ -13,6 +13,8 @@ class BoardTableViewCell: UITableViewCell {
     
     static let identifier = "BoardTableViewCell"
     
+  
+    
     let usernameLabel : UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
@@ -23,7 +25,12 @@ class BoardTableViewCell: UITableViewCell {
         return label
     }()
     
-    let postTextView = UITextView()
+    let postTextLabel : UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        return label
+    }()
     let postDateLabel : UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .light)
@@ -64,6 +71,13 @@ class BoardTableViewCell: UITableViewCell {
     }()
     
     
+    let lastLine: UIView = {
+       let line = UIView()
+        line.backgroundColor = .lightGray
+        return line
+    }()
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: "BoardTableViewCell")
         
@@ -76,25 +90,26 @@ class BoardTableViewCell: UITableViewCell {
     
     func loadLayout() {
         
+        
+        
         contentView.addSubview(usernameLabel)
         usernameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(12)
             make.leading.equalToSuperview().offset(16)
-            make.width.equalTo(usernameLabel.snp.width)
             make.height.equalTo(16)
         }
         
-        contentView.addSubview(postTextView)
-        postTextView.snp.makeConstraints { make in
-            make.top.equalTo(usernameLabel.snp.bottom)
-            make.leading.equalToSuperview().offset(12)
+        contentView.addSubview(postTextLabel)
+        postTextLabel.snp.makeConstraints { make in
+            make.top.equalTo(usernameLabel.snp.bottom).offset(12)
+            make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-12)
-            make.height.equalTo(40)
+       
         }
         
         contentView.addSubview(postDateLabel)
         postDateLabel.snp.makeConstraints { make in
-            make.top.equalTo(postTextView.snp.bottom).offset(16)
+            make.top.equalTo(postTextLabel.snp.bottom).offset(16)
             make.leading.equalTo(usernameLabel.snp.leading)
             make.height.equalTo(16)
         }
@@ -126,9 +141,16 @@ class BoardTableViewCell: UITableViewCell {
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(24)
             make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview()
+            
         }
         
+        contentView.addSubview(lastLine)
+        lastLine.snp.makeConstraints { make in
+            make.top.equalTo(commentBox.snp.bottom)
+            make.height.equalTo(4)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
         
         
         

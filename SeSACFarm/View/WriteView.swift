@@ -17,7 +17,7 @@ protocol WriteViewRepresentable {
 
 class WriteView: UIView, WriteViewRepresentable {
     
-    
+    let textView = UITextView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,9 +32,15 @@ class WriteView: UIView, WriteViewRepresentable {
     
     func setupView() {
         
+        addSubview(textView)
+        
     }
     
     func setupConstraints() {
+        
+        textView.snp.makeConstraints { make in
+            make.edges.equalTo(safeAreaLayoutGuide).inset(20)
+        }
         
     }
     

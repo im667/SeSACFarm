@@ -4,8 +4,8 @@
 //
 //  Created by mac on 2022/01/03.
 //
-// MARK: - ResultElement
-struct ResultElement: Codable {
+// MARK: - BoardElement
+struct BoardElement: Codable {
     let id: Int
     let text: String
     let user: User
@@ -55,4 +55,4 @@ enum Provider: String, Codable {
     case local = "local"
 }
 
-typealias Result = [ResultElement]
+typealias Board = [BoardElement]

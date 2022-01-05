@@ -19,8 +19,9 @@ class CommentTableViewCell: UITableViewCell {
         return label
     }()
     
-    let commentTextView : UITextView = {
-        let text = UITextView()
+    let commentLabel : UILabel = {
+        let text = UILabel()
+        text.numberOfLines = 0
        text.font = .systemFont(ofSize: 12, weight: .regular)
         return text
     }()
@@ -48,23 +49,27 @@ class CommentTableViewCell: UITableViewCell {
         
         contentView.addSubview(commentUsernameLabel)
         commentUsernameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(8)
+            make.height.equalTo(24)
+          
         }
         
         contentView.addSubview(commentModifyButton)
         commentModifyButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-16)
+            make.centerY.equalTo(commentUsernameLabel.snp.centerY)
+            make.trailing.equalToSuperview().offset(-8)
+            make.size.equalTo(30)
         }
         
-        contentView.addSubview(commentTextView)
-        commentTextView.snp.makeConstraints { make in
+        contentView.addSubview(commentLabel)
+        commentLabel.snp.makeConstraints { make in
             make.top.equalTo(commentUsernameLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-16)
         }
+        
+      
         
         
     }

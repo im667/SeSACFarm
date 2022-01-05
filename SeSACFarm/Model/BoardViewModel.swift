@@ -9,7 +9,7 @@ import UIKit
 
 class BoardViewModel {
 
-    var posts: Observable<Result> = Observable(Result())
+    var Boards: Observable<Board> = Observable(Board())
     
     func fetchPosts(){
         
@@ -27,7 +27,7 @@ class BoardViewModel {
                 return
             }
             
-            self.posts.value = response
+            self.Boards.value = response
             print("RESPONSE:",response)
             }
         }
@@ -39,12 +39,12 @@ class BoardViewModel {
 extension BoardViewModel {
 
     var numberOfRowInSection: Int {
-        return posts.value.count
+        return Boards.value.count
     }
 
-    func cellForRowAt(at indexPath: IndexPath)-> ResultElement {
+    func cellForRowAt(at indexPath: IndexPath)-> BoardElement {
 
-        return posts.value[indexPath.row]
+        return Boards.value[indexPath.row]
     }
 
 }

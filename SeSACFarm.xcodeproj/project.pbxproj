@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		040E271127843A6B00E319CA /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271027843A6B00E319CA /* WriteView.swift */; };
 		040E271327843DB400E319CA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271227843DB400E319CA /* PostTableViewCell.swift */; };
-		040E271527843DF700E319CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271427843DF700E319CA /* DetailViewModel.swift */; };
-		040E271727843E5200E319CA /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271627843E5200E319CA /* Comments.swift */; };
+		040E271527843DF700E319CA /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271427843DF700E319CA /* PostViewModel.swift */; };
+		040E271727843E5200E319CA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271627843E5200E319CA /* Post.swift */; };
 		040E271B27845E4500E319CA /* BackUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271A27845E4500E319CA /* BackUpCell.swift */; };
 		040E27212785B0F500E319CA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27202785B0F500E319CA /* CommentTableViewCell.swift */; };
+		040E272327861F1600E319CA /* WritePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E272227861F1500E319CA /* WritePostViewModel.swift */; };
+		040E27252786332E00E319CA /* WriteCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27242786332E00E319CA /* WriteCommentViewModel.swift */; };
 		0411849C278085EA0048344E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849B278085EA0048344E /* AppDelegate.swift */; };
 		0411849E278085EA0048344E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849D278085EA0048344E /* SceneDelegate.swift */; };
 		041184A5278085EF0048344E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041184A4278085EF0048344E /* Assets.xcassets */; };
@@ -31,19 +33,21 @@
 		041184FF2782CB580048344E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041184FE2782CB570048344E /* Observable.swift */; };
 		041185012782E7030048344E /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185002782E7020048344E /* BoardViewController.swift */; };
 		041185032782F02A0048344E /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185022782F02A0048344E /* BoardViewModel.swift */; };
-		041185072782F05E0048344E /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185062782F05E0048344E /* WriteViewController.swift */; };
+		041185072782F05E0048344E /* WritePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185062782F05E0048344E /* WritePostViewController.swift */; };
 		041185092782F06A0048344E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185082782F06A0048344E /* PostViewController.swift */; };
-		0411850B278309460048344E /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850A278309460048344E /* Posts.swift */; };
+		0411850B278309460048344E /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850A278309460048344E /* Board.swift */; };
 		0411850D278314760048344E /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850C278314760048344E /* BoardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		040E271027843A6B00E319CA /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		040E271227843DB400E319CA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		040E271427843DF700E319CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		040E271627843E5200E319CA /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		040E271427843DF700E319CA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		040E271627843E5200E319CA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		040E271A27845E4500E319CA /* BackUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpCell.swift; sourceTree = "<group>"; };
 		040E27202785B0F500E319CA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		040E272227861F1500E319CA /* WritePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewModel.swift; sourceTree = "<group>"; };
+		040E27242786332E00E319CA /* WriteCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentViewModel.swift; sourceTree = "<group>"; };
 		04118498278085EA0048344E /* SeSACFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411849B278085EA0048344E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411849D278085EA0048344E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,9 +67,9 @@
 		041184FE2782CB570048344E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		041185002782E7020048344E /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		041185022782F02A0048344E /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
-		041185062782F05E0048344E /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		041185062782F05E0048344E /* WritePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewController.swift; sourceTree = "<group>"; };
 		041185082782F06A0048344E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		0411850A278309460048344E /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		0411850A278309460048344E /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		0411850C278314760048344E /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,8 +113,8 @@
 				041184FC2782CB260048344E /* EndPoint.swift */,
 				041184FE2782CB570048344E /* Observable.swift */,
 				041184C527808B8A0048344E /* SignUser.swift */,
-				0411850A278309460048344E /* Posts.swift */,
-				040E271627843E5200E319CA /* Comments.swift */,
+				0411850A278309460048344E /* Board.swift */,
+				040E271627843E5200E319CA /* Post.swift */,
 				041184A4278085EF0048344E /* Assets.xcassets */,
 				041184A6278085EF0048344E /* LaunchScreen.storyboard */,
 				041184A9278085EF0048344E /* Info.plist */,
@@ -124,7 +128,9 @@
 				041184B82780890E0048344E /* LoginViewModel.swift */,
 				041185022782F02A0048344E /* BoardViewModel.swift */,
 				041184C327808B0E0048344E /* SignUpViewModel.swift */,
-				040E271427843DF700E319CA /* DetailViewModel.swift */,
+				040E272227861F1500E319CA /* WritePostViewModel.swift */,
+				040E27242786332E00E319CA /* WriteCommentViewModel.swift */,
+				040E271427843DF700E319CA /* PostViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,7 +154,7 @@
 				041185002782E7020048344E /* BoardViewController.swift */,
 				0411850C278314760048344E /* BoardTableViewCell.swift */,
 				040E271A27845E4500E319CA /* BackUpCell.swift */,
-				041185062782F05E0048344E /* WriteViewController.swift */,
+				041185062782F05E0048344E /* WritePostViewController.swift */,
 				041185082782F06A0048344E /* PostViewController.swift */,
 				040E271227843DB400E319CA /* PostTableViewCell.swift */,
 				040E27202785B0F500E319CA /* CommentTableViewCell.swift */,
@@ -234,8 +240,10 @@
 			files = (
 				041184FD2782CB260048344E /* EndPoint.swift in Sources */,
 				041184C427808B0E0048344E /* SignUpViewModel.swift in Sources */,
-				041185072782F05E0048344E /* WriteViewController.swift in Sources */,
+				041185072782F05E0048344E /* WritePostViewController.swift in Sources */,
 				041184B7278088F70048344E /* LoginView.swift in Sources */,
+				040E27252786332E00E319CA /* WriteCommentViewModel.swift in Sources */,
+				040E272327861F1600E319CA /* WritePostViewModel.swift in Sources */,
 				040E271327843DB400E319CA /* PostTableViewCell.swift in Sources */,
 				0411849C278085EA0048344E /* AppDelegate.swift in Sources */,
 				041184B0278088930048344E /* APIService.swift in Sources */,
@@ -250,11 +258,11 @@
 				040E27212785B0F500E319CA /* CommentTableViewCell.swift in Sources */,
 				041184B5278088E90048344E /* MainViewController.swift in Sources */,
 				040E271B27845E4500E319CA /* BackUpCell.swift in Sources */,
-				0411850B278309460048344E /* Posts.swift in Sources */,
+				0411850B278309460048344E /* Board.swift in Sources */,
 				041184B92780890E0048344E /* LoginViewModel.swift in Sources */,
-				040E271527843DF700E319CA /* DetailViewModel.swift in Sources */,
+				040E271527843DF700E319CA /* PostViewModel.swift in Sources */,
 				041185092782F06A0048344E /* PostViewController.swift in Sources */,
-				040E271727843E5200E319CA /* Comments.swift in Sources */,
+				040E271727843E5200E319CA /* Post.swift in Sources */,
 				041185012782E7030048344E /* BoardViewController.swift in Sources */,
 				041185032782F02A0048344E /* BoardViewModel.swift in Sources */,
 			);
