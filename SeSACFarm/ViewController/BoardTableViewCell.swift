@@ -91,12 +91,12 @@ class BoardTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-12)
             make.height.equalTo(40)
         }
+        
         contentView.addSubview(postDateLabel)
         postDateLabel.snp.makeConstraints { make in
             make.top.equalTo(postTextView.snp.bottom).offset(16)
             make.leading.equalTo(usernameLabel.snp.leading)
             make.height.equalTo(16)
-            
         }
         
         contentView.addSubview(lineView)
@@ -113,12 +113,11 @@ class BoardTableViewCell: UITableViewCell {
             make.height.equalTo(16)
             make.width.equalTo(16)
         }
+        
         commentBox.addArrangedSubview(commentLabel)
         commentLabel.snp.makeConstraints { make in
             make.height.equalTo(16)
             make.leading.equalTo(commentImage.snp.trailing).offset(4)
-            
-            
         }
         
         contentView.addSubview(commentBox)
@@ -128,7 +127,6 @@ class BoardTableViewCell: UITableViewCell {
             make.height.equalTo(24)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview()
-      
         }
         
         

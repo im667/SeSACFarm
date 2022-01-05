@@ -10,7 +10,7 @@
 		040E271127843A6B00E319CA /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271027843A6B00E319CA /* WriteView.swift */; };
 		040E271327843DB400E319CA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271227843DB400E319CA /* PostTableViewCell.swift */; };
 		040E271527843DF700E319CA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271427843DF700E319CA /* DetailViewModel.swift */; };
-		040E271727843E5200E319CA /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271627843E5200E319CA /* Detail.swift */; };
+		040E271727843E5200E319CA /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271627843E5200E319CA /* Comments.swift */; };
 		040E271B27845E4500E319CA /* BackUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E271A27845E4500E319CA /* BackUpCell.swift */; };
 		040E27212785B0F500E319CA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27202785B0F500E319CA /* CommentTableViewCell.swift */; };
 		0411849C278085EA0048344E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849B278085EA0048344E /* AppDelegate.swift */; };
@@ -41,7 +41,7 @@
 		040E271027843A6B00E319CA /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		040E271227843DB400E319CA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		040E271427843DF700E319CA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		040E271627843E5200E319CA /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		040E271627843E5200E319CA /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		040E271A27845E4500E319CA /* BackUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpCell.swift; sourceTree = "<group>"; };
 		040E27202785B0F500E319CA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		04118498278085EA0048344E /* SeSACFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +110,7 @@
 				041184FE2782CB570048344E /* Observable.swift */,
 				041184C527808B8A0048344E /* SignUser.swift */,
 				0411850A278309460048344E /* Posts.swift */,
-				040E271627843E5200E319CA /* Detail.swift */,
+				040E271627843E5200E319CA /* Comments.swift */,
 				041184A4278085EF0048344E /* Assets.xcassets */,
 				041184A6278085EF0048344E /* LaunchScreen.storyboard */,
 				041184A9278085EF0048344E /* Info.plist */,
@@ -254,7 +254,7 @@
 				041184B92780890E0048344E /* LoginViewModel.swift in Sources */,
 				040E271527843DF700E319CA /* DetailViewModel.swift in Sources */,
 				041185092782F06A0048344E /* PostViewController.swift in Sources */,
-				040E271727843E5200E319CA /* Detail.swift in Sources */,
+				040E271727843E5200E319CA /* Comments.swift in Sources */,
 				041185012782E7030048344E /* BoardViewController.swift in Sources */,
 				041185032782F02A0048344E /* BoardViewModel.swift in Sources */,
 			);

@@ -105,7 +105,8 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
         vc.viewModel.postDate.value = data.createdAt
         vc.viewModel.postTextView.value = data.text
         
-        
+        print("-------------")
+        print(data.text)
         print(data.id)
         print(data.user.username)
         
@@ -115,6 +116,8 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
        let cell = tableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.identifier, for: indexPath) as! BoardTableViewCell
         
         let data = viewModel.cellForRowAt(at: indexPath)
@@ -144,6 +147,8 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
         cell.postDateLabel.text = data.createdAt
         cell.postTextView.text = data.text
         cell.commentLabel.text = data.comments.count == 0 ? "댓글쓰기" : String(data.comments.count)
+        
+        
         
         
         return cell

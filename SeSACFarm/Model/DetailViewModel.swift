@@ -9,13 +9,16 @@ import UIKit
 
 class DetailViewModel {
 
+    
     var id:Int = 0
     var username = Observable("")
     var commentCount = Observable(0)
     var postDate = Observable("")
     var postTextView = Observable("")
     
-    var Detail: Observable<Post> = Observable(Post())
+    
+    var Detail = Observable(Post())
+    
     
 
     func commentGet(complition: @escaping ()->Void ) {
@@ -24,7 +27,17 @@ class DetailViewModel {
                 return
             }
             self.Detail.value = post
-  
+            complition()
         }
+    }
+}
+
+extension DetailViewModel {
+    var numberOfRowsInSection: Int {
+        return Detail.value.count
+    }
+    
+    func cellForRowAt(indexPath: IndexPath) -> PostElement {
+        return Detail.value[indexPath.row]
     }
 }
