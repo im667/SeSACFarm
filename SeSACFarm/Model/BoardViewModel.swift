@@ -28,7 +28,7 @@ class BoardViewModel {
             }
             
             self.posts.value = response
-            print(response)
+            print("RESPONSE:",response)
             }
         }
 
