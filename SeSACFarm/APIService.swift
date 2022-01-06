@@ -171,4 +171,18 @@ class APIService {
         URLSession.request(endpoint: request, completion: completion)
     }
     
+    static func editComment(id: Int, comment: String, completion: @escaping (PostElement?, APIError?)->Void) {
+        
+        var request = URLRequest(url: Endpoint.editComment(id: id).url)
+        request.httpMethod = Method.PUT.rawValue
+        request.httpBody = "comment=\(comment)&post=\(id)".data(using: .utf8, allowLossyConversion: false)
+        guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        request.setValue("x-www-form-urlencoded", forHTTPHeaderField: "Content=Type")
+        URLSession.request(endpoint: request, completion: completion)
+        
+    }
+     
+    
 }

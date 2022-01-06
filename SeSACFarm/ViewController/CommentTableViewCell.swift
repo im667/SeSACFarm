@@ -69,8 +69,6 @@ class CommentTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-16)
         }
         
-      
-        
         
     }
 }

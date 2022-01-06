@@ -22,6 +22,7 @@ enum Endpoint {
     case boards
     case boardsDetail(id: Int)
     case postComment
+    case editComment(id: Int)
     
 }
 
@@ -40,7 +41,10 @@ extension Endpoint {
             return .makeEndpoint("comments?post=\(id)")
         case .postComment:
             return .makeEndpoint("comments")
+        case .editComment(id: let id):
+            return .makeEndpoint("comments?post=\(id)")
         }
+       
     }
 }
 

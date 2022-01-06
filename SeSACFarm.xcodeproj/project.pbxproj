@@ -15,6 +15,8 @@
 		040E27212785B0F500E319CA /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27202785B0F500E319CA /* CommentTableViewCell.swift */; };
 		040E272327861F1600E319CA /* WritePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E272227861F1500E319CA /* WritePostViewModel.swift */; };
 		040E27252786332E00E319CA /* WriteCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27242786332E00E319CA /* WriteCommentViewModel.swift */; };
+		040E27292786EF9500E319CA /* EditCommentViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E27282786EF9500E319CA /* EditCommentViewcontroller.swift */; };
+		040E272B2786FE5100E319CA /* EditCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E272A2786FE5100E319CA /* EditCommentViewModel.swift */; };
 		0411849C278085EA0048344E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849B278085EA0048344E /* AppDelegate.swift */; };
 		0411849E278085EA0048344E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411849D278085EA0048344E /* SceneDelegate.swift */; };
 		041184A5278085EF0048344E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041184A4278085EF0048344E /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		040E27202785B0F500E319CA /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		040E272227861F1500E319CA /* WritePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostViewModel.swift; sourceTree = "<group>"; };
 		040E27242786332E00E319CA /* WriteCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentViewModel.swift; sourceTree = "<group>"; };
+		040E27282786EF9500E319CA /* EditCommentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentViewcontroller.swift; sourceTree = "<group>"; };
+		040E272A2786FE5100E319CA /* EditCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCommentViewModel.swift; sourceTree = "<group>"; };
 		04118498278085EA0048344E /* SeSACFarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACFarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0411849B278085EA0048344E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0411849D278085EA0048344E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040E272C2786FEAE00E319CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				041184C527808B8A0048344E /* SignUser.swift */,
+				0411850A278309460048344E /* Board.swift */,
+				040E271627843E5200E319CA /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0411848F278085EA0048344E = {
 			isa = PBXGroup;
 			children = (
@@ -104,17 +118,15 @@
 		0411849A278085EA0048344E /* SeSACFarm */ = {
 			isa = PBXGroup;
 			children = (
+				040E272C2786FEAE00E319CA /* Model */,
 				041184BC2780892B0048344E /* ViewController */,
 				041184BB2780891B0048344E /* View */,
-				041184BA278089140048344E /* Model */,
+				041184BA278089140048344E /* ViewModel */,
 				0411849B278085EA0048344E /* AppDelegate.swift */,
 				0411849D278085EA0048344E /* SceneDelegate.swift */,
 				041184AF278088930048344E /* APIService.swift */,
 				041184FC2782CB260048344E /* EndPoint.swift */,
 				041184FE2782CB570048344E /* Observable.swift */,
-				041184C527808B8A0048344E /* SignUser.swift */,
-				0411850A278309460048344E /* Board.swift */,
-				040E271627843E5200E319CA /* Post.swift */,
 				041184A4278085EF0048344E /* Assets.xcassets */,
 				041184A6278085EF0048344E /* LaunchScreen.storyboard */,
 				041184A9278085EF0048344E /* Info.plist */,
@@ -122,7 +134,7 @@
 			path = SeSACFarm;
 			sourceTree = "<group>";
 		};
-		041184BA278089140048344E /* Model */ = {
+		041184BA278089140048344E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				041184B82780890E0048344E /* LoginViewModel.swift */,
@@ -130,9 +142,10 @@
 				041184C327808B0E0048344E /* SignUpViewModel.swift */,
 				040E272227861F1500E319CA /* WritePostViewModel.swift */,
 				040E27242786332E00E319CA /* WriteCommentViewModel.swift */,
+				040E272A2786FE5100E319CA /* EditCommentViewModel.swift */,
 				040E271427843DF700E319CA /* PostViewModel.swift */,
 			);
-			path = Model;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		041184BB2780891B0048344E /* View */ = {
@@ -158,6 +171,7 @@
 				041185082782F06A0048344E /* PostViewController.swift */,
 				040E271227843DB400E319CA /* PostTableViewCell.swift */,
 				040E27202785B0F500E319CA /* CommentTableViewCell.swift */,
+				040E27282786EF9500E319CA /* EditCommentViewcontroller.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -240,6 +254,8 @@
 			files = (
 				041184FD2782CB260048344E /* EndPoint.swift in Sources */,
 				041184C427808B0E0048344E /* SignUpViewModel.swift in Sources */,
+				040E27292786EF9500E319CA /* EditCommentViewcontroller.swift in Sources */,
+				040E272B2786FE5100E319CA /* EditCommentViewModel.swift in Sources */,
 				041185072782F05E0048344E /* WritePostViewController.swift in Sources */,
 				041184B7278088F70048344E /* LoginView.swift in Sources */,
 				040E27252786332E00E319CA /* WriteCommentViewModel.swift in Sources */,
