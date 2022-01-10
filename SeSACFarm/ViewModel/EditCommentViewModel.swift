@@ -9,17 +9,31 @@ import Foundation
 
 class EditCommentViewModel {
 
-    
-    var editComment: Observable<PostElement>=Observable(PostElement(id: 0, comment: "", user: User(id: 0, username: "", email: "", provider: Provider.local, confirmed: false, role: 0, createdAt: "", updatedAt: ""), post: PostClass(id: 0, text: "", user: 0, createdAt: "", updatedAt: ""), createdAt: "", updatedAt: ""))
-       
-    func editComment(id:Int, comment: String, completion: @escaping () -> Void) {
+    var commentId: Int?
+    var postId: Int?
+    var editedComment: String?
+
+    func editComment(completion: @escaping () -> Void) {
+        
+        guard let commentId = commentId else {
+            return
+        }
+        
+        guard let postId = postId else {
+            return
+        }
+
+        guard let editedComment = editedComment else {
+            return
+        }
+
          
-        APIService.editComment(id:id, comment: comment){ postElement, error in
+        APIService.editComment(commentId: commentId, id:postId, comment: editedComment) { comment, error in
        
-               guard let postElement = postElement else {
+            guard comment != nil  else {
                    return
                }
-               self.editComment.value = postElement
+             
                
                completion()
            }

@@ -158,12 +158,12 @@ class APIService {
     
     
     
-    static func writeComment(id: Int, comment: String, completion: @escaping (PostElement?, APIError?)->Void) {
+    static func writeComment(postId: Int, comment: String, completion: @escaping (PostElement?, APIError?)->Void) {
         
         var request = URLRequest(url: Endpoint.postComment.url)
         
         request.httpMethod = Method.POST.rawValue
-        request.httpBody = "comment=\(comment)&post=\(id)".data(using: .utf8, allowLossyConversion: false)
+        request.httpBody = "comment=\(comment)&post=\(postId)".data(using: .utf8, allowLossyConversion: false)
         guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
         
         request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
@@ -171,15 +171,25 @@ class APIService {
         URLSession.request(endpoint: request, completion: completion)
     }
     
-    static func editComment(id: Int, comment: String, completion: @escaping (PostElement?, APIError?)->Void) {
+    static func editComment(commentId:Int ,id: Int, comment: String, completion: @escaping (PostElement?, APIError?)->Void) {
         
-        var request = URLRequest(url: Endpoint.editComment(id: id).url)
+        var request = URLRequest(url: Endpoint.editComment(id: commentId).url)
         request.httpMethod = Method.PUT.rawValue
         request.httpBody = "comment=\(comment)&post=\(id)".data(using: .utf8, allowLossyConversion: false)
         guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
-        
         request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
-        request.setValue("x-www-form-urlencoded", forHTTPHeaderField: "Content=Type")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request(endpoint: request, completion: completion)
+        
+    }
+    
+    static func deleteComment(commentId:Int ,completion: @escaping(PostElement?, APIError?)->Void){
+        
+        var request = URLRequest(url: Endpoint.editComment(id: commentId).url)
+        request.httpMethod = Method.DELETE.rawValue
+       
+        guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
+        request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
         URLSession.request(endpoint: request, completion: completion)
         
     }

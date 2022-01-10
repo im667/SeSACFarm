@@ -5,7 +5,6 @@
 //  Created by mac on 2022/01/03.
 //
 
-import Foundation
 import UIKit
 
 class WritePostViewController : UIViewController {

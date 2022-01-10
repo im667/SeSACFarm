@@ -31,6 +31,16 @@ class PostViewModel {
             complition()
         }
     }
+    
+    func deleteComment(postId: Int, complition: @escaping ()->Void ) {
+        
+        APIService.deleteComment(commentId: postId) { delete, error in
+            guard delete != nil else {
+                return
+            }
+            complition()
+        }
+    }
 }
 
 extension PostViewModel {
