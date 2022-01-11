@@ -66,6 +66,7 @@ class BoardViewController: UIViewController {
         super.viewWillAppear(animated)
         
         viewModel.fetchPosts()
+    
         
         viewModel.Boards.bind { post in
             DispatchQueue.main.async {
@@ -105,6 +106,7 @@ extension BoardViewController:UITableViewDelegate, UITableViewDataSource {
         vc.viewModel.commentCount.value = data.comments.count
         vc.viewModel.postDate.value = data.createdAt
         vc.viewModel.postTextView.value = data.text
+        vc.viewModel.email = data.user.email
         
         print("-------------")
         print(data.text)

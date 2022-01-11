@@ -20,8 +20,8 @@ class WritePostViewController : UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ClickedDoneButton))]
-        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(ClickedCancelButton))]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(clickedDoneButton))]
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(clickedCancelButton))]
         
         viewModel.writePost.bind { boardElement in
             self.mainView.textView.text = boardElement.text
@@ -29,14 +29,14 @@ class WritePostViewController : UIViewController {
         
     }
     
-    @objc func ClickedDoneButton(){
+    @objc func clickedDoneButton(){
         viewModel.addPost(text: mainView.textView.text) {
           
             self.navigationController?.popViewController(animated: true)
         }
     }
     
-    @objc func ClickedCancelButton(){
+    @objc func clickedCancelButton(){
         self.navigationController?.popViewController(animated: true)
     }
     

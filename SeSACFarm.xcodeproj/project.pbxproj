@@ -39,6 +39,8 @@
 		041185092782F06A0048344E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041185082782F06A0048344E /* PostViewController.swift */; };
 		0411850B278309460048344E /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850A278309460048344E /* Board.swift */; };
 		0411850D278314760048344E /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411850C278314760048344E /* BoardTableViewCell.swift */; };
+		04A55FA6278DB8E80028FBF0 /* EditPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A55FA5278DB8E80028FBF0 /* EditPostsViewModel.swift */; };
+		04A55FA8278DFDEE0028FBF0 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A55FA7278DFDEE0028FBF0 /* EditPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		041185082782F06A0048344E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		0411850A278309460048344E /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		0411850C278314760048344E /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
+		04A55FA5278DB8E80028FBF0 /* EditPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostsViewModel.swift; sourceTree = "<group>"; };
+		04A55FA7278DFDEE0028FBF0 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 				040E27242786332E00E319CA /* WriteCommentViewModel.swift */,
 				040E272A2786FE5100E319CA /* EditCommentViewModel.swift */,
 				040E271427843DF700E319CA /* PostViewModel.swift */,
+				04A55FA5278DB8E80028FBF0 /* EditPostsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				0411850C278314760048344E /* BoardTableViewCell.swift */,
 				040E271A27845E4500E319CA /* BackUpCell.swift */,
 				041185062782F05E0048344E /* WritePostViewController.swift */,
+				04A55FA7278DFDEE0028FBF0 /* EditPostViewController.swift */,
 				041185082782F06A0048344E /* PostViewController.swift */,
 				040E271227843DB400E319CA /* PostTableViewCell.swift */,
 				040E27202785B0F500E319CA /* CommentTableViewCell.swift */,
@@ -257,6 +263,7 @@
 				040E27292786EF9500E319CA /* EditCommentViewcontroller.swift in Sources */,
 				040E272B2786FE5100E319CA /* EditCommentViewModel.swift in Sources */,
 				041185072782F05E0048344E /* WritePostViewController.swift in Sources */,
+				04A55FA8278DFDEE0028FBF0 /* EditPostViewController.swift in Sources */,
 				041184B7278088F70048344E /* LoginView.swift in Sources */,
 				040E27252786332E00E319CA /* WriteCommentViewModel.swift in Sources */,
 				040E272327861F1600E319CA /* WritePostViewModel.swift in Sources */,
@@ -265,6 +272,7 @@
 				041184B0278088930048344E /* APIService.swift in Sources */,
 				041184BE278089520048344E /* LoginViewController.swift in Sources */,
 				0411849E278085EA0048344E /* SceneDelegate.swift in Sources */,
+				04A55FA6278DB8E80028FBF0 /* EditPostsViewModel.swift in Sources */,
 				041184C227808B020048344E /* SignUpView.swift in Sources */,
 				040E271127843A6B00E319CA /* WriteView.swift in Sources */,
 				041184C627808B8A0048344E /* SignUser.swift in Sources */,

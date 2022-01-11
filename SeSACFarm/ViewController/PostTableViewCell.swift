@@ -34,6 +34,8 @@ class PostTableViewCell: UITableViewCell {
         return label
         
     }()
+    
+    
     let postTextLabel : UILabel = {
         let text = UILabel()
         text.numberOfLines = 0

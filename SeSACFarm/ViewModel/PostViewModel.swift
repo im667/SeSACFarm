@@ -10,20 +10,29 @@ import UIKit
 class PostViewModel {
 
     
-    var id:Int = 0
+    var id:Int? = 0
     var username = Observable("")
     var commentCount = Observable(0)
     var postDate = Observable("")
     var postTextView = Observable("")
-    
+    var email:String = ""
     
     var Detail = Observable(Post())
     
-    
+    func deletePosts(postId: Int, completion: @escaping () -> Void) {
+        
+        APIService.deletePosts(id: id ?? 0) { board, error in
+            guard board != nil else {
+                return
+            }
+            completion()
+        }
+        
+    }
 
     func commentGet(complition: @escaping ()->Void ) {
-        print("GETID:",id)
-        APIService.getDetail(id: id) { post, error in
+        print("GETID:",id ?? 0)
+        APIService.getDetail(id: id ?? 0) { post, error in
             guard let post = post else {
                 return
             }

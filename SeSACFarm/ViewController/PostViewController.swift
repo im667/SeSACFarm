@@ -24,6 +24,17 @@ var commentAddButton = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if viewModel.email == UserDefaults.standard.string(forKey: "email") {
+            
+            self.navigationItem.rightBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(clickedEditButton))
+            
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+            
+        print("ViewModelID:\(viewModel.id)",UserDefaults.standard.integer(forKey: "id"))
+       
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -83,14 +94,81 @@ var commentAddButton = UIButton()
         viewModel.commentGet {
             self.tableView.reloadData()
         }
+    
+       
+    }
+    
+
+    
+    @objc func clickedEditButton(){
         
+        
+        let alert = UIAlertController(title: "수정/삭제", message: "게시글을 수정 및 삭제 합니다.", preferredStyle: .alert)
+        
+        let edit = UIAlertAction(title: "수정하기", style: .default) {action in
+            
+            let vc = EditPostViewController()
+            vc.viewModel.postId = self.viewModel.id
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+        let delete = UIAlertAction(title: "삭제하기", style: .default){ action in
+            
+            let alert = UIAlertController(title: "삭제하기", message: "게시글을 정말로 삭제 하겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            
+            let okAction = UIAlertAction(title: "삭제", style: .destructive) { action in
+                    self.deletePost()
+      
+                    let alert = UIAlertController(title: "삭제 확인", message: "게시글이 삭제 됐습니다ㅠㅠ", preferredStyle: UIAlertController.Style.alert)
+            
+                    let ok = UIAlertAction(title: "확인", style: .default) { action in
+                   
+                    self.navigationController?.popViewController(animated: true)
+                }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    
+                
+                    
+            }
+            
+            let noAction = UIAlertAction(title: "돌아가기", style: .cancel)
+            
+            alert.addAction(okAction)
+            alert.addAction(noAction)
+            
+            self.present(alert, animated: false, completion: nil)
+            
+        }
+        
+        
+        alert.addAction(edit)
+        alert.addAction(delete)
+        
+        self.present(alert, animated: false, completion: nil)
         
     }
 
+    
+func deletePost(){
 
+    guard let postId = self.viewModel.id else { return }
+    self.viewModel.deletePosts(postId: postId) {
+        print("DELETE POST")
+    }
+
+
+
+    }
+    
+
+    
+    
     @objc func clickedAddButton(){
         print("클릭클릭")
-        writeCommentViewModel.addComment(id: viewModel.id, comment: commentWriteTextView.text){
+        writeCommentViewModel.addComment(id: viewModel.id ?? 0, comment: commentWriteTextView.text){
             
             self.viewModel.Detail.bind { post in
                         print("POST:", post)
@@ -203,5 +281,3 @@ extension PostViewController:UITableViewDelegate, UITableViewDataSource {
     
     
 }
-
-

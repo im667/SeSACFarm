@@ -21,9 +21,12 @@ enum Endpoint {
     case login
     case boards
     case boardsDetail(id: Int)
+    case editBoards(id: Int)
+    case deleteBoards(id: Int)
     case postComment
     case editComment(id: Int)
     case deleteComment(id: Int)
+    
     
 }
 
@@ -40,12 +43,17 @@ extension Endpoint {
             return .makeEndpoint("posts?_sort=created_at:desc")
         case .boardsDetail(id: let id):
             return .makeEndpoint("comments?post=\(id)")
+        case .editBoards(id: let id):
+            return .makeEndpoint("posts/\(id)")
+        case .deleteBoards(id: let id):
+            return .makeEndpoint("posts/\(id)")
         case .postComment:
             return .makeEndpoint("comments")
         case .editComment(id: let id):
             return .makeEndpoint("comments/\(id)")
         case .deleteComment(id: let id):
             return .makeEndpoint("comments/\(id)")
+    
         }
        
     }

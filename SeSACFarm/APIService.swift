@@ -140,7 +140,30 @@ class APIService {
         request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
         
         URLSession.request(endpoint: request, completion: completion)
+    }
+    
+    static func editPosts(id: Int, text:String, completion: @escaping (Board?, APIError?)->Void) {
         
+        var request = URLRequest(url: Endpoint.editBoards(id: id).url)
+        
+        request.httpMethod = Method.PUT.rawValue
+        request.httpBody = "text=\(text)".data(using: .utf8, allowLossyConversion: false)
+        guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
+        request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        URLSession.request(endpoint: request, completion: completion)
+    }
+    
+    static func deletePosts(id: Int, completion: @escaping (Board?, APIError?)->Void) {
+        
+        var request = URLRequest(url: Endpoint.editBoards(id: id).url)
+        
+        request.httpMethod = Method.DELETE.rawValue
+    
+        guard let jwt = UserDefaults.standard.string(forKey: "token") else { return }
+        request.setValue("Bearer \(jwt)", forHTTPHeaderField: "Authorization")
+  
+        URLSession.request(endpoint: request, completion: completion)
     }
     
     
