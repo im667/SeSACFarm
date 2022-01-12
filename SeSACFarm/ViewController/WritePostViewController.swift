@@ -19,6 +19,7 @@ class WritePostViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "글쓰기"
         view.backgroundColor = .white
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(clickedDoneButton))]
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(clickedCancelButton))]

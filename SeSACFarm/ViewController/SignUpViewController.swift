@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController {
         
         view.backgroundColor = .white
         
-   
+     
         
         mainView.signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
         
@@ -41,6 +41,7 @@ class SignUpViewController: UIViewController {
             self.mainView.passwordCheckTextField.text = text
         }
         
+        
         UserDefaults.standard.set(viewModel.password.value, forKey: "password")
 
         
@@ -58,21 +59,37 @@ class SignUpViewController: UIViewController {
         mainView.signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
     }
 
+
+    
+    
     @objc func usernameTextFieldDidChange(_ textfield: UITextField){
         viewModel.username.value = textfield.text ?? ""
+        
     }
     
     @objc func userEmailTextFieldDidChange(_ textfield: UITextField){
         viewModel.userEmail.value = textfield.text ?? ""
+       
     }
     
     
     @objc func passwordTextFieldDidChange(_ textfield: UITextField){
         viewModel.password.value = textfield.text ?? ""
+    
     }
     
     @objc func passwordTextCheckFieldDidChange(_ textfield: UITextField){
         viewModel.passwordCheck.value = textfield.text ?? ""
+        
+        if textfield.text == self.mainView.passwordTextField.text {
+          
+            self.mainView.signUpButton.isEnabled = true
+            self.mainView.signUpButton.backgroundColor = UIColor(red: 52/255, green: 161/255, blue: 112/255, alpha: 1)
+        } else {
+            showToast(message: "비밀번호가 일치하지 않습니다.")
+            self.mainView.signUpButton.isEnabled = false
+        }
+        
     }
     
    
@@ -92,5 +109,23 @@ class SignUpViewController: UIViewController {
         }
     }
 
+    func showToast(message : String) {
+        let toastLabel = UILabel(frame: CGRect(
+            x: self.view.frame.size.width/2 - 75,
+            y: self.view.frame.size.height/2, width: 150, height: 35))
+            toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            toastLabel.textColor = UIColor.white
+            toastLabel.font = UIFont.systemFont(ofSize: 16)
+            toastLabel.textAlignment = .center;
+            toastLabel.text = message
+            toastLabel.alpha = 1.0
+            toastLabel.layer.cornerRadius = 10;
+            toastLabel.clipsToBounds = true
+            self.view.addSubview(toastLabel)
+            UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: { toastLabel.alpha = 0.0 }, completion: {(isCompleted) in toastLabel.removeFromSuperview() })
+    }
+
+    
+    
 }
 

@@ -15,7 +15,7 @@ class LoginViewModel {
     var username: Observable<String> = Observable("")
     
     
-    func postUserLogin(completion: @escaping ()->Void ) {
+    func postUserLogin(completion: @escaping (Bool)->Void ) {
         
         APIService.Login(identifier: userEmail.value, password: password.value, completion: { userData, error in
             
@@ -30,7 +30,7 @@ class LoginViewModel {
 //            UserDefaults.standard.set(userData.user.password, forKey: "password")
            
             print(UserDefaults.standard.string(forKey: "token"))
-            completion()
+            completion(true)
         })
     }
     func getUsername() {

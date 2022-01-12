@@ -18,7 +18,7 @@ var writeCommentViewModel = WriteCommentViewModel()
 var tableView = UITableView()
 var commentTextBar = UIView()
     
-var commentWriteTextView = UITextView()
+var commentWriteTextField = UITextField()
 var commentAddButton = UIButton()
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ var commentAddButton = UIButton()
             self.navigationItem.rightBarButtonItem = nil
         }
             
-        print("ViewModelID:\(viewModel.id)",UserDefaults.standard.integer(forKey: "id"))
+     
        
         
         tableView.delegate = self
@@ -40,8 +40,14 @@ var commentAddButton = UIButton()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
         view.backgroundColor = .white
-
         
+        commentWriteTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        view.addGestureRecognizer(tap)
+
+
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -59,9 +65,9 @@ var commentAddButton = UIButton()
             make.trailing.equalToSuperview()
         }
         
-        commentTextBar.addSubview(commentWriteTextView)
-        commentWriteTextView.backgroundColor = .white
-        commentWriteTextView.snp.makeConstraints { make in
+        commentTextBar.addSubview(commentWriteTextField)
+        commentWriteTextField.backgroundColor = .white
+        commentWriteTextField.snp.makeConstraints { make in
             make.top.equalTo(commentTextBar.snp.top).offset(12)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-56)
@@ -70,12 +76,13 @@ var commentAddButton = UIButton()
         
         commentTextBar.addSubview(commentAddButton)
         commentAddButton.setTitle("전송", for: .normal)
-        commentAddButton.setTitleColor(UIColor(red: 52/255, green: 161/255, blue: 112/255, alpha: 1), for: .normal)
+        commentAddButton.setTitleColor(UIColor(cgColor: .init(gray: 0.5, alpha: 0.3)), for: .normal)
         commentAddButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .black)
+        commentAddButton.isEnabled = false
         
         commentAddButton.snp.makeConstraints { make in
-            make.centerY.equalTo(commentWriteTextView)
-            make.leading.equalTo(commentWriteTextView.snp.trailing).offset(8)
+            make.centerY.equalTo(commentWriteTextField)
+            make.leading.equalTo(commentWriteTextField.snp.trailing).offset(8)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-8)
             make.width.equalTo(40)
             
@@ -86,6 +93,11 @@ var commentAddButton = UIButton()
       
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
         tableView.register(CommentTableViewCell.self, forCellReuseIdentifier: CommentTableViewCell.identifier)
+        
+        commentWriteTextField.addTarget(self, action: #selector(commentTextFieldDIdChange(_:)), for: .editingChanged)
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +110,42 @@ var commentAddButton = UIButton()
        
     }
     
+    
+    @objc func commentTextFieldDIdChange(_ textfield: UITextField){
+        if commentWriteTextField.text == nil {
+        
+            self.commentAddButton.backgroundColor = UIColor(cgColor: .init(gray: 0.5, alpha: 0.3))
+        } else {
+            commentAddButton.isEnabled = true
+            commentAddButton.setTitleColor(UIColor(red: 52/255, green: 161/255, blue: 112/255, alpha: 1), for: .normal)
+        }
+        
+    }
+    
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+
+        guard let userInfo = notification.userInfo,
+                let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+                    return
+            }
+        
+        self.view.frame.origin.y = -(keyboardFrame.size.height) // Move view 150 points upward
+
+    }
+
+
+    @objc func keyboardWillHide(_ sender: Notification) {
+        
+        
+        self.view.frame.origin.y = 0
+
+    }
+
+    @objc func dismissKeyBoard(){
+        view.endEditing(true)
+    }
+
 
     
     @objc func clickedEditButton(){
@@ -168,15 +216,16 @@ func deletePost(){
     
     @objc func clickedAddButton(){
         print("클릭클릭")
-        writeCommentViewModel.addComment(id: viewModel.id ?? 0, comment: commentWriteTextView.text){
-            
-            self.viewModel.Detail.bind { post in
-                        print("POST:", post)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
+        view.endEditing(true)
+      
+        
+        writeCommentViewModel.addComment(id: viewModel.id ?? 0, comment: commentWriteTextField.text!){
+      
+            self.viewModel.commentGet {
+                self.tableView.reloadData()
+            }
         }
+        commentWriteTextField.text = ""
     }
     @objc func clickedModifyButton(sender: UIButton) {
         
@@ -227,9 +276,7 @@ extension PostViewController:UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     
-
-    
-    
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return viewModel.Detail.value.count
         if section == 0 {
@@ -277,6 +324,18 @@ extension PostViewController:UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
+    }
+    
+    
+}
+
+
+extension PostViewController: UITextFieldDelegate {
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     
