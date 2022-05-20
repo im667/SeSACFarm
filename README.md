@@ -31,11 +31,15 @@ Reactive Programming 에 대해 스스로 고민하고
   
   ## Trouble shooting
   
-  1.
+  1. 
+  
   로그인한 Id의 Token값에 따른 RootViewController 지정
 View 구현에 문제가 있어 token값을 UserDefault로 관리하고
 ViewModel에서 rootView를 분기처리해 해결했습니다.
-2. 
+
+  
+  2. 
+  
   Model 구성 중 변수명 착오로 인해 개발 시간을 소모했습니다.
 이 후 변수명에 대한 직관성을 고민하며 새로 Model 작업을 했습니다.
   
