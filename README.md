@@ -29,7 +29,7 @@ MVVM패턴을 적용했습니다.
 Reactive Programming 에 대해 스스로 고민하고
 코딩에 몰입할 수 있었던 프로젝트였습니다.
   
-  ##Trouble shooting
+  ## Trouble shooting
   
   1. 로그인한 Id의 Token값에 따른 RootViewController 지정
 View 구현에 문제가 있어 token값을 UserDefault로 관리하고
